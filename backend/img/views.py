@@ -28,11 +28,11 @@ def save_img(request):
         form = UploadFileForm(request.POST, request.FILES)
         print(request.FILES)
         if form.is_valid():
-            instance = Images(image=request.FILES['image']) # image 필수 독학
+
+            instance = Images(image=request.FILES['image']) # image 필수 독학 시빨 
             instance.save()
             context = {
                 'result' : 'True'
-                'image' : instance.image
             }
             return Response(context, status=status.HTTP_200_OK)
     else:
