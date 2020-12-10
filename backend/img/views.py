@@ -26,8 +26,10 @@ def save_img(request):
             }
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
+        print(request.FILES)
         if form.is_valid():
-            instance = Images(file_field=request.FILES['file'])
+
+            instance = Images(image=request.FILES['image']) # image 필수 독학 시빨 
             instance.save()
             context = {
                 'result' : 'True'
