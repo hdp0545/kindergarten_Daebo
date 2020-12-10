@@ -4,4 +4,4 @@ from rest_framework import serializers
 class ImagesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Images
-        fields = ("first","image")
+        fields = ("image")
