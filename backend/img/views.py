@@ -31,8 +31,8 @@ def save_img(request):
             instance = Images(image=request.FILES['image']) # image 필수 독학
             instance.save()
             context = {
-                'result' : 'True',
-                'image' : instance.image
+                'result' : 'True'
+                'path' : instance.image.url
             }
             return Response(context, status=status.HTTP_200_OK)
     else:
