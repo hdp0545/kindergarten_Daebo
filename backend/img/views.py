@@ -31,6 +31,7 @@ def save_img(request):
             instance.save()
             context = {
                 'result' : 'True'
+                '' : 
             }
             return Response(context, status=status.HTTP_200_OK)
     else:
