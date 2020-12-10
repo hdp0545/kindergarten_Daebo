@@ -9,7 +9,7 @@ from .serializers import ImagesSerializer
 from .forms import UploadFileForm
 
 # rest_framework
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -21,6 +21,9 @@ class ImagesViewSet(viewsets.ModelViewSet):
 
 @api_view(['POST'])
 def save_img(request):
+    context = {
+                'result' : 'False'    
+            }
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
