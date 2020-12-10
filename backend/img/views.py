@@ -22,6 +22,14 @@ class ImagesViewSet(viewsets.ModelViewSet):
 @api_view(['POST'])
 def save_img(request):
     if request.method == 'POST':
-        form = 
-        if form.is_valid()
-        
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            instance = Images(file_field=request.FILES['file'])
+            instance.save()
+            context = {
+                'result' : 'True'    
+            }
+            return Response(context, status=status.HTTP_200_OK)
+    else:
+        form = UploadFileForm()
+    return Response(context, status=status.HTTP_200_OK)
