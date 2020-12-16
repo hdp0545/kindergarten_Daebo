@@ -31,14 +31,18 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'img',
+    'yolo',
+    'rest_framework',
+    'numpy',
+    'matplotlib',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'img',
-    'rest_framework'
+    
 ]
 
 MIDDLEWARE = [
