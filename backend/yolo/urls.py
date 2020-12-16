@@ -4,5 +4,5 @@ from . import views
 app_name = 'yolo'
 
 urlpatterns = [
-    # path('', views.save_img, name='save_img'),
+    path('', views.livefe, name='livefe'),
 ]
