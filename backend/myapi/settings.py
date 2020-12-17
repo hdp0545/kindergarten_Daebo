@@ -23,22 +23,31 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '%skm1!4(&bep08%1kwzi$wr8t0b#8%5t!0yy4gjxs4l+6(w5$b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['34.64.197.76']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    # apps
+    'img',
+    'yolo',
+
+    # thirdparty-lib
+    'rest_framework',
+    'numpy',
+    'matplotlib',
+
+    # default
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'img',
-    'rest_framework'
+    
 ]
 
 MIDDLEWARE = [
