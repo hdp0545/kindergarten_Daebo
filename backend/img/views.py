@@ -30,6 +30,8 @@ def save_img(request):
         if form.is_valid():
             instance = Images(image=request.FILES['image']) # 감자ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ감쟈ㅑㅑㅑㅑㅑ 대홍단 가암자 ~ 
             instance.save()
+            print(instance.image.url)
+            print(instance.image.name)
             context = {
                 'result' : 'True', 
                 'path' : instance.image.url
