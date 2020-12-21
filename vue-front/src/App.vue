@@ -55,7 +55,9 @@
     </v-app-bar>
 
     <v-main>
-      <router-view></router-view>
+      <router-view
+        @submit-upload-data="uploadFile"  
+      ></router-view>
     </v-main>
     <footer-vue/>
   </v-app>
@@ -63,6 +65,9 @@
 
 <script>
 import footerVue from '@/components/Footer.vue'
+import axios from 'axios'
+
+const SERVER_URL = 'http://34.64.197.76'
 export default {
   name: 'App',
 
@@ -73,5 +78,13 @@ export default {
   data: () => ({
     //
   }),
+  methods: {
+    uploadFile(selectedFile) {
+      axios.post(`${SERVER_URL}/api/img/`, selectedFile)
+      .then(response => {
+        console.log(response)
+      })
+    }
+  }
 };
 </script>

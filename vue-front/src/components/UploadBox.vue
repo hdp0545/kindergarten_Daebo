@@ -33,8 +33,9 @@
         @change="selectFile"
       ></v-file-input>
       <v-btn
-        collor="primary"
-        class="mr-4">
+        color="primary"
+        class="mr-4"
+        @click="fileUpload">
         전송
       </v-btn>
     </v-form>
@@ -50,21 +51,24 @@ export default {
     return {
       selectedFile: [],
       imageUrl: "",
-
+      progress: 0,
 
       currentFile: undefined,
-      progress: 0,
+      
       message: "",
       fileInfos: [],
       rules: [
         value => !value || value.size < 2000000 || 'Picture size should be less than 2 MB!',
       ],
-      
     }
   },
   methods: {
     selectFile() {
-      this.imageUrl = URL.createObjectURL(this.selectedFile)
+      this.$emit('select-file', this.selectedFile)
+    },
+    fileUpload() {
+      this.progress = 0
+      this.$emit('submit-upload-data', this.selectedFile)
     }
     
     // upload() {

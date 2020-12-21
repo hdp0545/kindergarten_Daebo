@@ -1,6 +1,12 @@
 <template>
   <div>
-    <upload-box></upload-box>
+    <v-container>
+      <v-img :src="imageUrl"></v-img>
+    </v-container>
+    <upload-box
+      @select-file="selectFile"
+      @submit-upload-data="uploadFile"
+    ></upload-box>
   </div>
 </template>
 
@@ -10,6 +16,19 @@ export default {
   name: "Convert",
   components: {
     UploadBox
+  },
+  data() {
+    return {
+      imageUrl: '',
+    }
+  },
+  methods: {
+    selectFile(selectedFile) {
+      this.imageUrl = URL.createObjectURL(selectedFile)
+    },
+    uploadFile(selectedFile) {
+      this.$emit('submit-upload-data', selectedFile)
+    }
   }
 }
 </script>
