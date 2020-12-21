@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'numpy',
     'matplotlib',
+    'corsheaders',
 
     # default
     'django.contrib.admin',
@@ -51,6 +52,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # cors
+    'corsheaders.middleware.CorsMiddleware'
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -134,3 +137,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+CORS_ORIGIN_ALLOW_ALL = True
