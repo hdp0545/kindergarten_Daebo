@@ -76,13 +76,24 @@ export default {
   },
 
   data: () => ({
-    //
+    file: undefined,
   }),
   methods: {
     uploadFile(selectedFile) {
-      axios.post(`${SERVER_URL}/api/img/`, selectedFile)
+      let formData = new FormData();
+
+      formData.append("file", selectedFile)
+
+      console.log(formData)
+      axios.post(`${SERVER_URL}/api/images/`,formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      })
       .then(response => {
         console.log(response)
+      }).catch(err => {
+        console.log(err)
       })
     }
   }
