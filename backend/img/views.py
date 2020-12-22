@@ -33,10 +33,11 @@ def save_img(request):
             print(instance.image.url)
             print(instance.image.name)
             context = {
-                'result' : 'True', 
+                'result' : 'True',
+                'message' : '파일을 업로드 하였습니다.',
                 'path' : instance.image.url
             }
             return Response(context, status=status.HTTP_200_OK)
     else:
         form = UploadFileForm()
-    return Response(context, status=status.HTTP_200_OK)
+    return Response(context, status=status.HTTP_400_BAD_REQUEST)

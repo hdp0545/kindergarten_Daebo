@@ -51,10 +51,9 @@ export default {
   name: "upload-box",
   data() {
     return {
-      selectedFile: [],
+      selectedFile: undefined,
       imageUrl: "",
       progress: 0,
-      currentFile: undefined,
       
       message: "",
       fileInfos: [],
@@ -68,17 +67,16 @@ export default {
       this.$emit('select-file', this.selectedFile)
     },
     fileUpload() {
-      if (!this.currentFile) {
+      if (!this.selectedFile) {
         this.message = "Please select a file!";
         return;
       }
       this.message = ""
-      UploadService.upload(this.currentFile, (event) => {
+      UploadService.upload(this.selectedFile, (event) => {
         this.progress = Math.round((100 * event.loaded) / event.total);
       })
         .then((response) => {
           this.message = response.data.message;
-          return UploadService.getFiles();
         })
     }
     

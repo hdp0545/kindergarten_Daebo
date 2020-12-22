@@ -1,9 +1,14 @@
 <template>
   <v-app>
+    <v-img
+      alt="Background Image"
+      src='@/img/background.png'
+      height='800px'>
+    </v-img>
     <v-app-bar
-      app
+      class="fixed"
       color="primary"
-      dark
+      light
     >
       <a href="/">
         <div class="d-flex align-center">
@@ -98,3 +103,7 @@ export default {
   }
 };
 </script>
+<style scoped>
+</style>
+
+
