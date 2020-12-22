@@ -26,8 +26,8 @@ export default {
     selectFile(selectedFile) {
       this.imageUrl = URL.createObjectURL(selectedFile)
     },
-    uploadFile(selectedFile) {
-      this.$emit('submit-upload-data', selectedFile)
+    uploadFile(selectedFile, onUploadProgress) {
+      this.$emit('submit-upload-data', selectedFile, onUploadProgress)
     }
   }
 }

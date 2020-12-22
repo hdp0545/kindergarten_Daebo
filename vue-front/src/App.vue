@@ -67,7 +67,8 @@
 import footerVue from '@/components/Footer.vue'
 import axios from 'axios'
 
-const SERVER_URL = 'http://34.64.197.76'
+// const SERVER_URL = 'http://34.64.197.76/api'
+const SERVER_URL = 'http://127.0.0.1:8000'
 export default {
   name: 'App',
 
@@ -79,18 +80,16 @@ export default {
     file: undefined,
   }),
   methods: {
-    uploadFile(selectedFile) {
+    uploadFile(file, onUploadProgress) {
       let formData = new FormData();
+      formData.append("file", file)
 
-      formData.append("file", selectedFile)
-
-      console.log(formData)
-      axios.post(`${SERVER_URL}/api/images/`,formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
+      console.log(formData, onUploadProgress)
+      axios.post(`${SERVER_URL}/img/`, formData,
+        {headers: {
+          'Content-Type': "multipart/form-data"}
         }
-      })
-      .then(response => {
+      ).then(response => {
         console.log(response)
       }).catch(err => {
         console.log(err)

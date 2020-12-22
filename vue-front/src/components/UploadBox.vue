@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import UploadService from "../services/UploadFilesService";
+
 export default {
   name: "upload-box",
   data() {
@@ -52,7 +54,6 @@ export default {
       selectedFile: [],
       imageUrl: "",
       progress: 0,
-
       currentFile: undefined,
       
       message: "",
@@ -67,8 +68,18 @@ export default {
       this.$emit('select-file', this.selectedFile)
     },
     fileUpload() {
-      this.progress = 0
-      this.$emit('submit-upload-data', this.selectedFile)
+      if (!this.currentFile) {
+        this.message = "Please select a file!";
+        return;
+      }
+      this.message = ""
+      UploadService.upload(this.currentFile, (event) => {
+        this.progress = Math.round((100 * event.loaded) / event.total);
+      })
+        .then((response) => {
+          this.message = response.data.message;
+          return UploadService.getFiles();
+        })
     }
     
     // upload() {
