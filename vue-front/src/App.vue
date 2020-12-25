@@ -1,67 +1,70 @@
 <template>
-  <v-app>
+  <v-app
+    >
     <v-img
       alt="Background Image"
       src='@/img/background.png'
       height='800px'>
     </v-img>
     <v-app-bar
+      v-scroll="onScroll"
       class="fixed"
-      color="primary"
+      color="white"
       light
+      flat
+      :fixed="fixed"
     >
       <a href="/">
-        <div class="d-flex align-center">
+        <div class="d-flex align-start">
           <v-img
-            alt="Vuetify Logo"
-            class="shrink mr-2"
+            alt="Wall-E Logo"
+            class="shrink mr-2 mt-2"
             contain
-            src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+            src="./img/page_main/logo_horizontal.png"
             transition="scale-transition"
-            width="40"
-          />
-
-          <v-img
-            alt="Vuetify Name"
-            class="shrink mt-1 hidden-sm-and-down"
-            contain
-            min-width="100"
-            src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-            width="100"
+            width="250px"
           />
         </div>
       </a>
 
+
       <v-spacer></v-spacer>
       <v-tabs
-        dark
+        lights
         optional
         right
         >
         <v-tab
+          to="/"
+          text
+        >
+          <span class="mr-2">Home</span>
+        </v-tab>
+        <v-tab
           to="/about"
           text
         >
-          <span class="mr-2">About Us</span>
+          <span class="mr-2">About Program</span>
         </v-tab>
         <v-tab
           to="/convert"
           text
         >
-          <span class="mr-2">Convert</span>
+          <span class="mr-2">Converter</span>
         </v-tab>
         <v-tab
           to="/contact"
           text
         >
-          <span class="mr-2">Contact Us</span>
+          <span class="mr-2">Contact</span>
         </v-tab>
       </v-tabs>
     </v-app-bar>
 
-    <v-main>
+    <v-main
+      :class="bosang">
       <router-view
-        @submit-upload-data="uploadFile"  
+        @submit-upload-data="uploadFile"
       ></router-view>
     </v-main>
     <footer-vue/>
@@ -83,6 +86,9 @@ export default {
 
   data: () => ({
     file: undefined,
+    fixed: false,
+    offsetTop: 0,
+    bosang: ""
   }),
   methods: {
     uploadFile(file, onUploadProgress) {
@@ -99,11 +105,23 @@ export default {
       }).catch(err => {
         console.log(err)
       })
-    }
+    },
+    onScroll () {
+      if (window.scrollY >= 800) {
+        this.bosang = "mt-16"
+        this.fixed = true
+        
+        
+      } else if (window.scrollY <= 700) {
+        this.bosang = ""
+        this.fixed = false
+      }
+    },
   }
 };
 </script>
 <style scoped>
+
 </style>
 
 

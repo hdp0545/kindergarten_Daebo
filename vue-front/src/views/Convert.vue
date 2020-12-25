@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-container>
+    <v-container
+      style="min-height: 800px">
       <v-img :src="imageUrl"></v-img>
     </v-container>
     <upload-box

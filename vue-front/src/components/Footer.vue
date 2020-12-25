@@ -1,10 +1,11 @@
 <template>
   <v-footer
-    color="primary lighten-1"
+    color="thema"
     padless
   >
     <v-row
-      justify="center"
+      align-content="center"
+      justify="space-between"
       no-gutters
     >
       <!-- <v-btn
@@ -18,11 +19,30 @@
         {{ link }}
       </v-btn> -->
       <v-col
-        class="primary lighten-2 py-4 text-center white--text"
-        cols="12"
+        class="ml-7 lighten-2 py-4 text-start white--text"
+        md="5"
       >
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+        <div>
+
+        COPYRIGHT© 2020 KINDERGARTEN_AI. ALL RIGHT RESERVED.<br>
+        찾아오시는 길: 06367 서울시 강남구 광평로 280 로즈데일 빌딩 6층
+        </div>
       </v-col>
+      <v-col
+        class="py-3"
+        align-self="end"
+        >
+        <v-img
+          class="ml-auto mr-7 mb-1"
+          width="300px"
+          contain
+          src="../img/page_main/logo_DBCS.png"
+          alt="대보 로고"
+        >
+        </v-img>
+      </v-col>
+
+      
     </v-row>
   </v-footer>
 </template>
