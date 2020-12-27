@@ -4,7 +4,17 @@
     <v-img
       alt="Background Image"
       src='@/img/background.png'
-      height='800px'>
+      height='800px'
+      gradient="to top, rgba(0,0,0,.4), rgba(0,0,0,.9)"
+      background-position
+      >
+      <v-layout column align-center justify-center class="mt-n7 white--text" fill-height>
+        <h1 class="white--text font-weight-bold display-2 mb-1 text-center">Kindergarten_AI</h1>
+        <hr
+          width="150px"
+          class="my-4">
+				<div class="subheading mb-4 text-center">인공지능을 이용한 차량 번호판 화질 개선 및 인식 프로젝트</div>
+      </v-layout>
     </v-img>
     <v-app-bar
       v-scroll="onScroll"
@@ -13,6 +23,7 @@
       light
       flat
       :fixed="fixed"
+      :class="bosang"
     >
       <a href="/">
         <div class="d-flex align-start">
@@ -61,8 +72,10 @@
       </v-tabs>
     </v-app-bar>
 
-    <v-main
-      :class="bosang">
+    <div
+      :v-if="fixed"
+      class="height-64px"></div>
+    <v-main>
       <router-view
         @submit-upload-data="uploadFile"
       ></router-view>
@@ -108,11 +121,11 @@ export default {
     },
     onScroll () {
       if (window.scrollY >= 800) {
-        this.bosang = "mt-16"
+        this.bosang = "pb-16"
         this.fixed = true
         
         
-      } else if (window.scrollY <= 700) {
+      } else if (window.scrollY <= 800) {
         this.bosang = ""
         this.fixed = false
       }

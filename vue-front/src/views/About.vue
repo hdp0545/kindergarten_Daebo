@@ -1,5 +1,7 @@
 <template>
-  <v-container>
+  <v-container
+    style="min-height: 800px"
+    class="mt-16">
     <v-row
       justify='center'>
       <div>
@@ -8,7 +10,9 @@
       </h1>
       </div>
     </v-row>
-     <v-row>
+     <v-row
+      justify='center'
+      class="mb-16">
       <hr
         class="mt-1"
         width="110px"
@@ -16,45 +20,62 @@
         color="black"
         text-align="center">
     </v-row>
-    <v-row>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-      >
-        <v-img
-          class="white--text align-end"
-          height="200px"
-          src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-        >
-          <v-card-title>Top 10 Australian beaches</v-card-title>
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          Number 10
-        </v-card-subtitle>
-
-        <v-card-text class="text--primary">
-          <div>Whitehaven Beach</div>
-
-          <div>Whitsunday Island, Whitsunday Islands</div>
-        </v-card-text>
-
-        <v-card-actions>
-          <v-btn
-            color="orange"
-            text
-          >
-            Share
-          </v-btn>
-
-          <v-btn
-            color="orange"
-            text
-          >
-            Explore
-          </v-btn>
-        </v-card-actions>
-      </v-card>
+    
+    <v-row
+      justify="center">
+      <div
+        class="align-center">
+        WALL·E Convert는 사용자가 가지고 있는 저화질 차량 이미지를 고화질로 변환하고,변환된 이미지 내 차량 번호판 글자를 출력하는 서비스입니다.<br>
+        AI(인공지능) 기반인 이미지 처리와 글자 인식 기술을 통해 제작한 서비스는 사용자의 기술적 이해를 필요로 하지 않습니다.<br>
+        사용자는 Drag&Drop 한번으로 WALL·E Convert 서비스를 손쉽게 이용할 수 있습니다.<br>
+        사고 처리 및 신고를 위해 차량 번호가 필요한 경우 WALL·E Convert를 유용하게 활용할 수 있습니다.
+      </div>
+    </v-row>
+    <v-row
+      justify="space-around"
+      class="mt-16">
+      <v-col>
+        <v-card
+          class="px-5"
+          flat
+          justify=center>
+          <v-card-title>
+            <h1 class="mx-auto">"GAN"</h1>
+          </v-card-title>
+          <v-card-text
+            class="mt-5">
+            GAN은 진짜와 같은 데이터를 만들어내는 기술입니다. 저화질 이미지 데이터를 고화질 이미지 데이터로 변환하기 위해 사용하였습니다.
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card
+          class="px-5"
+          flat
+          justify=center>
+          <v-card-title>
+            <h1 class="mx-auto">"YOLO"</h1>
+          </v-card-title>
+          <v-card-text
+            class="mt-5">
+            YOLO는 이미지 내 특정 물체를 탐지하는 기술입니다. 이미지에 존재하는 차량 번호판을 탐지하고 번호판 이미지를 추출하려 사용하였습니다.
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card
+          class="px-5"
+          flat
+          justify=center>
+          <v-card-title>
+            <h1 class="mx-auto">"OCR"</h1>
+          </v-card-title>
+          <v-card-text
+            class="mt-5">
+            OCR은 이미지 내 글자를 인식하여 추출하는 기술입니다. 차량 번호판 이미지의 글자를 텍스트 형식으로 반환하기 위해 사용하였습니다.
+          </v-card-text>
+        </v-card>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -66,5 +87,8 @@ export default {
 </script>
 
 <style scoped>
+.align-center {
+  text-align: center;
+}
 </style>
 
