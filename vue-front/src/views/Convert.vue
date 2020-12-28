@@ -1,7 +1,7 @@
 <template>
   <v-container
     style="min-height: 800px"
-    class="mt-16">
+    class="mt-16 my-main">
     <v-row
       justify='center'>
       <div>

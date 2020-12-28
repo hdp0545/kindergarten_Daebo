@@ -1,6 +1,5 @@
 <template>
-  <v-app
-    >
+  <v-app>
     <v-img
       alt="Background Image"
       src='@/img/background.png'
@@ -18,58 +17,66 @@
     </v-img>
     <v-app-bar
       v-scroll="onScroll"
-      class="fixed"
       color="white"
       light
       flat
       :fixed="fixed"
       :class="bosang"
-    >
-      <a href="/">
-        <div class="d-flex align-start">
-          <v-img
-            alt="Wall-E Logo"
-            class="shrink mr-2 mt-2"
-            contain
-            src="./img/page_main/logo_horizontal.png"
-            transition="scale-transition"
-            width="250px"
-          />
-        </div>
-      </a>
-
-
-      <v-spacer></v-spacer>
-      <v-tabs
-        lights
-        optional
-        right
-        >
-        <v-tab
-          to="/"
-          text
-        >
-          <span class="mr-2">Home</span>
-        </v-tab>
-        <v-tab
-          to="/about"
-          text
-        >
-          <span class="mr-2">About Program</span>
-        </v-tab>
-        <v-tab
-          to="/convert"
-          text
-        >
-          <span class="mr-2">Converter</span>
-        </v-tab>
-        <v-tab
-          to="/contact"
-          text
-        >
-          <span class="mr-2">Contact</span>
-        </v-tab>
-      </v-tabs>
+    > 
+      <v-container
+        class="mx-auto"
+        style="min-width: 1000px">
+        <v-row
+          justify="space-between">
+          <v-col>
+            <a href="/">
+              <div class="d-flex-inline mb-n20 align-start">
+                <v-img
+                  alt="Wall-E Logo"
+                  class="shrink mr-2 mt-2"
+                  contain
+                  src="./img/page_main/logo_horizontal.png"
+                  transition="scale-transition"
+                  width="250px"
+                />
+              </div>
+            </a>
+          </v-col>
+          <v-col
+            class="mt-3">
+            <v-tabs
+              lights
+              optional
+              right
+              >
+              <v-tab
+                to="/"
+                text
+              >
+                <span class="mr-2">Home</span>
+              </v-tab>
+              <v-tab
+                to="/about"
+                text
+              >
+                <span class="mr-2">About Program</span>
+              </v-tab>
+              <v-tab
+                to="/convert"
+                text
+              >
+                <span class="mr-2">Converter</span>
+              </v-tab>
+              <v-tab
+                to="/contact"
+                text
+              >
+                <span class="mr-2">Contact</span>
+              </v-tab>
+            </v-tabs>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-app-bar>
 
     <div
@@ -99,7 +106,7 @@ export default {
 
   data: () => ({
     file: undefined,
-    fixed: false,
+    fixed: true,
     offsetTop: 0,
     bosang: ""
   }),
@@ -134,6 +141,9 @@ export default {
 };
 </script>
 <style scoped>
+.my-main {
+  max-width: 900px;
+}
 
 </style>
 

@@ -1,7 +1,7 @@
 <template>
   <v-container
     style="min-height: 800px"
-    class="mt-16">
+    class="mt-16 my-main">
     <v-row
       justify='center'>
       <div>
@@ -25,7 +25,8 @@
       justify="center">
       <div
         class="align-center">
-        WALL·E Convert는 사용자가 가지고 있는 저화질 차량 이미지를 고화질로 변환하고,변환된 이미지 내 차량 번호판 글자를 출력하는 서비스입니다.<br>
+        WALL·E Convert는 사용자가 가지고 있는 저화질 차량 이미지를 고화질로 변환하고,<br>
+        변환된 이미지 내 차량 번호판 글자를 출력하는 서비스입니다.<br>
         AI(인공지능) 기반인 이미지 처리와 글자 인식 기술을 통해 제작한 서비스는 사용자의 기술적 이해를 필요로 하지 않습니다.<br>
         사용자는 Drag&Drop 한번으로 WALL·E Convert 서비스를 손쉽게 이용할 수 있습니다.<br>
         사고 처리 및 신고를 위해 차량 번호가 필요한 경우 WALL·E Convert를 유용하게 활용할 수 있습니다.
