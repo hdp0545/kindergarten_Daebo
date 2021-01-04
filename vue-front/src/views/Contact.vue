@@ -1,6 +1,6 @@
 <template>
   <v-container
-    style="min-height: 800px"
+    style="min-height: 600px; max-height:600px;"
     class="mt-16 my-main">
     <v-row
       justify='center'>
