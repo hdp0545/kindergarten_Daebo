@@ -132,9 +132,9 @@ export default {
         this.fixed = true
         
         
-      } else if (window.scrollY <= 800) {
+      } else if (window.scrollY <= 736) {
         this.bosang = ""
-        this.fixed = false
+        // this.fixed = false
       }
     },
   }
