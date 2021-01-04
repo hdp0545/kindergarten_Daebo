@@ -12,33 +12,11 @@
         {{ progress }}%
       </div>
     </div>
-
-
-    <img class="img-video" src='../img/icon-video.png' alt="비디오 로고" height="100"/>
+    <div
+      class="uploadBox">
+      <div class="py-auto">Choose File <br> OR <br> Drag & Drop Files Here</div>    
+    </div>
     
-    <v-img
-      :src="imageUrl"
-      max-height="450"
-      max-width="600"
-    ></v-img>
-      <!-- <input type="file"  /> -->
-    <v-form>
-      <v-file-input
-        :rules="rules"
-        accept="image/png, image/jpeg, image/bmp"
-        placeholder="인식할 사진을 넣어주세요"
-        prepend-icon="mdi-camera"
-        label="Picture"
-        v-model="selectedFile"
-        @change="selectFile"
-      ></v-file-input>
-      <v-btn
-        color="primary"
-        class="mr-4"
-        @click="fileUpload">
-        전송
-      </v-btn>
-    </v-form>
     
 
   </v-container>
@@ -110,5 +88,21 @@ export default {
 </script>
 
 <style>
+.uploadBox {
+  background-color:rgb(132, 151, 176);
+  width: 100%;
+  height: 280px;
+  border: dashed rgb(68, 114, 196);
+  line-height: 1.5rem;
+  margin: auto;
+  text-align: center;
+  align-content: center;
+  color: white;
+  display: block;
+  padding-top: 11%;
+  }
+
+
+
 
 </style>

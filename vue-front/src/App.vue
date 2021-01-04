@@ -106,7 +106,7 @@ export default {
 
   data: () => ({
     file: undefined,
-    fixed: true,
+    fixed: false,
     offsetTop: 0,
     bosang: ""
   }),
