@@ -26,18 +26,15 @@ def save_img(request):
             }
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
-        print(request.FILES)
         if form.is_valid():
             instance = Images(image=request.FILES['image']) # 감자ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ감쟈ㅑㅑㅑㅑㅑ 대홍단 가암자 ~ 
             instance.save()
-            print(instance.image.url)
-            print(instance.image.name)
             context = {
                 'result' : 'True',
                 'message' : '파일을 업로드 하였습니다.',
                 'path' : instance.image.url
             }
             return Response(context, status=status.HTTP_200_OK)
-    else:
-        form = UploadFileForm()
+        else:
+            form = UploadFileForm()
     return Response(context, status=status.HTTP_400_BAD_REQUEST)

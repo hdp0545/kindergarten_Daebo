@@ -1,24 +1,17 @@
 <template>
   <v-container>
-    <div v-if="currentFile" class="progress">
-      <div
-        class="progress-bar progress-bar-info progress-bar-striped"
-        role="progressbar"
-        :aria-valuenow="progress"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        :style="{ width: progress + '%' }"
-      >
-        {{ progress }}%
-      </div>
-    </div>
     <div
-      class="uploadBox">
-      <div class="py-auto">Choose File <br> OR <br> Drag & Drop Files Here</div>    
+      class="uploadBox"  @drop.prevent="addFile" @dragover.prevent>
+      <div v-if="selectedFile" class="progress">
+        <v-progress-linear
+          color="light-blue"
+          height="10"
+          :value="progress"
+          striped
+        > {{ progress }}% </v-progress-linear>
+      </div>
+      <div class="my-auto upload-word">Choose File <br> OR <br> Drag & Drop Files Here</div>
     </div>
-    
-    
-
   </v-container>
 </template>
 
@@ -55,9 +48,21 @@ export default {
       })
         .then((response) => {
           this.message = response.data.message;
-        })
+          console.log(this.message)
+        }).catch((err) => {
+          console.log(err)
+          this.progress = 0;
+          this.message = "Could not upload the file!";
+          this.selectedFile = undefined;
+          console.log(this.message)
+        });
+    },
+    addFile(e) {
+      this.selectedFile = e.dataTransfer.files[0]
+      console.log(this.selectedFile)
+      this.fileUpload()
     }
-    
+
     // upload() {
     //   console.log("start")
     //   this.progress = 0;
@@ -99,8 +104,16 @@ export default {
   align-content: center;
   color: white;
   display: block;
-  padding-top: 11%;
+  position: relative;
   }
+.upload-word {
+  position: relative;
+  top: 90px;
+}
+.progress {
+  position: absolute;
+  width: 100%;
+} 
 
 
 
