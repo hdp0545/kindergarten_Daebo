@@ -321,5 +321,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
+ 
+keras-yolo3/
+*.h5
 # End of https://www.toptal.com/developers/gitignore/api/python,django,vscode,windows,dart,flutter
