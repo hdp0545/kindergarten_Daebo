@@ -5,7 +5,7 @@
     <v-row
       justify='center'>
       <div>
-      <h1>
+      <h1 class="bold">
         Converter
       </h1>
       </div>
@@ -20,7 +20,7 @@
         text-align="center">
     </v-row>
 
-    <v-row>
+    <v-row class="mt-6">
       <v-img :src="imageUrl"></v-img>
     </v-row>
     <v-row>
@@ -30,14 +30,13 @@
       ></upload-box>
     </v-row>
     <v-row
-      justify="center">
+      justify="center mt-8">
       <h2>
         How to Use WALL·E Converter
       </h2>
     </v-row>
     <v-row
-      justify="space-around"
-      class="mt-16">
+      justify="space-around mt-4">
       <v-col
         v-for="howToCard in howToCards"
         :key="howToCard.step"
@@ -105,5 +104,8 @@ export default {
 </script>
 
 <style>
-
+.bold {
+  font-family: 나눔스퀘어_ac Bold !important;
+  src: url(../font/NanumSquare_acB.ttf);
+}
 </style>

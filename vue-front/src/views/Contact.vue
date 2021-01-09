@@ -5,14 +5,14 @@
     <v-row
       justify='center'>
       <div>
-      <h1>
+      <h1 class="bold">
         Contact Us
       </h1>
       </div>
     </v-row>  
     <v-row
       justify='center'
-      class="mb-16">
+      class="mb-6">
       <hr
         class="mt-1"
         width="110px"
@@ -167,5 +167,9 @@ export default {
 <style>
 .text-align-center {
   text-align: center;
+}
+.bold {
+  font-family: 나눔스퀘어_ac Bold !important;
+  src: url(../font/NanumSquare_acB.ttf);
 }
 </style>

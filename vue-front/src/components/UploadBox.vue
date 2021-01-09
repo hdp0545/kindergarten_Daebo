@@ -105,7 +105,7 @@ export default {
   color: white;
   display: block;
   position: relative;
-  }
+}
 .upload-word {
   position: relative;
   top: 90px;

@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <!-- background -->
     <v-img
       alt="Background Image"
       src='@/img/background.png'
@@ -15,6 +16,8 @@
 				<div class="subheading mb-4 text-center">인공지능을 이용한 차량 번호판 화질 개선 및 인식 프로젝트</div>
       </v-layout>
     </v-img>
+
+    <!-- navigation bar -->
     <v-app-bar
       v-scroll="onScroll"
       color="white"
@@ -79,14 +82,19 @@
       </v-container>
     </v-app-bar>
 
+    <!-- fixed margin for navbar -->
     <div
-      :v-if="fixed"
-      class="height-64px"></div>
+      v-if="this.fixed"
+      class="pt-11"></div>
+    
+    <!-- main contents -->
     <v-main>
       <router-view
         @submit-upload-data="uploadFile"
       ></router-view>
     </v-main>
+
+    <!-- footer bar -->
     <footer-vue/>
   </v-app>
 </template>
@@ -134,7 +142,7 @@ export default {
         
       } else if (window.scrollY <= 736) {
         this.bosang = ""
-        // this.fixed = false
+        this.fixed = false
       }
     },
   }
@@ -144,6 +152,15 @@ export default {
 .my-main {
   max-width: 900px;
 }
+.bold {
+  font-family: 나눔스퀘어_ac Bold !important;
+  src: url(./font/NanumSquare_acB.ttf);
+}
+.v-application{
+  font-family: 나눔스퀘어_ac;
+  src: url(./font/NanumSquare_acR.ttf);
+}
+
 
 </style>
 

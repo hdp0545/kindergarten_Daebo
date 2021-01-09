@@ -2,9 +2,12 @@
   <v-container
     style="min-height: 600px"
     class="my-main">
+    <!-- about page -->
     <about></about>
+    <!-- converter page -->
     <convert
       @submit-upload-data="uploadFile"></convert>
+    <!-- contact page -->
     <contact></contact>
   </v-container>
 </template>

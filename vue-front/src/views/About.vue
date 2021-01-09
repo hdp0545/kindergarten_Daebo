@@ -5,14 +5,14 @@
     <v-row
       justify='center'>
       <div>
-      <h1>
+      <h1 class="bold">
         About Program
       </h1>
       </div>
     </v-row>
      <v-row
       justify='center'
-      class="mb-16">
+      class="mb-8">
       <hr
         class="mt-1"
         width="110px"
@@ -41,7 +41,7 @@
           flat
           justify=center>
           <v-card-title>
-            <h1 class="mx-auto">"GAN"</h1>
+            <h1 class="mx-auto bold">"GAN"</h1>
           </v-card-title>
           <v-card-text
             class="mt-5">
@@ -55,7 +55,7 @@
           flat
           justify=center>
           <v-card-title>
-            <h1 class="mx-auto">"YOLO"</h1>
+            <h1 class="mx-auto bold">"YOLO"</h1>
           </v-card-title>
           <v-card-text
             class="mt-5">
@@ -69,7 +69,7 @@
           flat
           justify=center>
           <v-card-title>
-            <h1 class="mx-auto">"OCR"</h1>
+            <h1 class="mx-auto bold">"OCR"</h1>
           </v-card-title>
           <v-card-text
             class="mt-5">
@@ -90,6 +90,10 @@ export default {
 <style scoped>
 .align-center {
   text-align: center;
+}
+.bold {
+  font-family: 나눔스퀘어_ac Bold !important;
+  src: url(../font/NanumSquare_acB.ttf);
 }
 </style>
 
