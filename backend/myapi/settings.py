@@ -33,13 +33,14 @@ ALLOWED_HOSTS = ['34.64.197.76', '127.0.0.1', 'localhost', '*']
 INSTALLED_APPS = [
     # apps
     'img',
-    'yolo',
+    'my_yolo',
 
     # thirdparty-lib
     'rest_framework',
     'numpy',
     'matplotlib',
     'corsheaders',
+    'PIL',
 
     # default
     'django.contrib.admin',

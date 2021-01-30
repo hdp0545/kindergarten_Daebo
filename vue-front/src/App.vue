@@ -91,6 +91,7 @@
     <v-main>
       <router-view
         @submit-upload-data="uploadFile"
+        @start-ocr="startOcr"
       ></router-view>
     </v-main>
 
@@ -138,13 +139,14 @@ export default {
       if (window.scrollY >= 800) {
         this.bosang = "pb-16"
         this.fixed = true
-        
-        
       } else if (window.scrollY <= 736) {
         this.bosang = ""
         this.fixed = false
       }
     },
+    startOcr() {
+      axios.get(`${SERVER_URL}/img/ocr/`)
+    }
   }
 };
 </script>

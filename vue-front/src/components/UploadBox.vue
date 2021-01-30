@@ -10,7 +10,8 @@
           striped
         > {{ progress }}% </v-progress-linear>
       </div>
-      <div class="my-auto upload-word">Choose File <br> OR <br> Drag & Drop Files Here</div>
+      <div v-if="during_OCR" class="my-auto upload-word">Choose File <br> OR <br> Drag & Drop Files Here</div>
+      <div v-else class="my-auto upload-word">Starting <br> Kindergarten_AI</div>
     </div>
   </v-container>
 </template>
@@ -25,6 +26,8 @@ export default {
       selectedFile: undefined,
       imageUrl: "",
       progress: 0,
+
+      during_OCR: false,
       
       message: "",
       fileInfos: [],
@@ -34,9 +37,6 @@ export default {
     }
   },
   methods: {
-    selectFile() {
-      this.$emit('select-file', this.selectedFile)
-    },
     fileUpload() {
       if (!this.selectedFile) {
         this.message = "Please select a file!";
@@ -49,6 +49,10 @@ export default {
         .then((response) => {
           this.message = response.data.message;
           console.log(this.message)
+          this.$emit('start-ocr')
+          this.progress = 0
+          this.during_OCR = true
+          this.selectedFile = undefined
         }).catch((err) => {
           console.log(err)
           this.progress = 0;

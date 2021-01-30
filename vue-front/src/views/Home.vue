@@ -6,7 +6,8 @@
     <about></about>
     <!-- converter page -->
     <convert
-      @submit-upload-data="uploadFile"></convert>
+      @submit-upload-data="uploadFile"
+      @start-ocr="startOcr"></convert>
     <!-- contact page -->
     <contact></contact>
   </v-container>
@@ -27,6 +28,9 @@ export default {
   methods: {
     uploadFile(selectedFile, onUploadProgress) {
       this.$emit('submit-upload-data', selectedFile, onUploadProgress)
+    },
+    startOcr() {
+      this.$emit('start-ocr')
     }
   }
 }
