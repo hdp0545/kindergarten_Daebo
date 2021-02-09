@@ -10,8 +10,7 @@
           striped
         > {{ progress }}% </v-progress-linear>
       </div>
-      <div v-if="during_OCR" class="my-auto upload-word">Choose File <br> OR <br> Drag & Drop Files Here</div>
-      <div v-else class="my-auto upload-word">Starting <br> Kindergarten_AI</div>
+      <div class="my-auto upload-word">Choose File <br> OR <br> Drag & Drop Files Here</div>
     </div>
   </v-container>
 </template>

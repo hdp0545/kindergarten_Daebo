@@ -119,7 +119,7 @@ export default {
           git_href: "gabiiii",
           insta_href: "sh.gabriella",
           enm: "SeungHyeon Yang",
-          information: "12기/전략개발팀",
+          information: "12기/전략기술팀",
         },
         {
           title: "BCK",

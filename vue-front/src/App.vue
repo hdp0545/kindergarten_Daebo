@@ -159,8 +159,10 @@ export default {
   src: url(./font/NanumSquare_acB.ttf);
 }
 .v-application{
-  font-family: 나눔스퀘어_ac;
-  src: url(./font/NanumSquare_acR.ttf);
+  /* font-family: 나눔스퀘어_ac; */
+  /* src: url(./font/NanumSquare_acR.ttf); */
+  font-family: D2Coding;
+  src: url(./font/D2Coding-Ver1.3.2-20180524.ttf);
 }
 
 

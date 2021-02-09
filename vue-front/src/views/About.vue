@@ -35,44 +35,62 @@
     <v-row
       justify="space-around"
       class="mt-16">
-      <v-col>
+      <v-col
+        lg='4'>
         <v-card
           class="px-5"
           flat
           justify=center>
+          <v-img
+            height="100px"
+            contain
+            src="../img/page_about/repair.png"
+          ></v-img>
           <v-card-title>
-            <h1 class="mx-auto bold">"GAN"</h1>
+            <h1 class="mx-auto mt-5 bold">"GAN"</h1>
           </v-card-title>
           <v-card-text
-            class="mt-5">
+            class="mt-2">
             GAN은 진짜와 같은 데이터를 만들어내는 기술입니다. 저화질 이미지 데이터를 고화질 이미지 데이터로 변환하기 위해 사용하였습니다.
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col>
+      <v-col
+        lg='4'>
         <v-card
           class="px-5"
           flat
           justify=center>
+          <v-img
+            height="100px"
+            contain
+            src="../img/page_about/evaluation.png"
+          ></v-img>
           <v-card-title>
-            <h1 class="mx-auto bold">"YOLO"</h1>
+            <h1 class="mx-auto mt-5 bold">"YOLO"</h1>
           </v-card-title>
           <v-card-text
-            class="mt-5">
+            class="mt-2">
             YOLO는 이미지 내 특정 물체를 탐지하는 기술입니다. 이미지에 존재하는 차량 번호판을 탐지하고 번호판 이미지를 추출하려 사용하였습니다.
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col>
+      <v-col
+        lg='4'>
         <v-card
           class="px-5"
           flat
           justify=center>
+          <v-img
+            height="100px"
+            contain
+            src="../img/page_about/transformation.png"
+          ></v-img>
           <v-card-title>
-            <h1 class="mx-auto bold">"OCR"</h1>
+            <h1 class="mx-auto mt-5 bold">"OCR"</h1>
           </v-card-title>
           <v-card-text
-            class="mt-5">
+            class="mt-2">
             OCR은 이미지 내 글자를 인식하여 추출하는 기술입니다. 차량 번호판 이미지의 글자를 텍스트 형식으로 반환하기 위해 사용하였습니다.
           </v-card-text>
         </v-card>
