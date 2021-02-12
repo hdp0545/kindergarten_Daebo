@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Convert from '../views/Convert.vue'
 import Contact from '../views/Contact.vue'
 import Processing from '../views/Processing.vue'
+import AfterRecognition from '../views/AfterRecognition.vue'
 
 Vue.use(VueRouter)
 
@@ -35,6 +36,11 @@ const routes = [
     path: '/processing',
     name: 'Processing',
     component: Processing
+  },
+  {
+    path: '/afterRecognition',
+    name: 'AfterRecognition',
+    component: AfterRecognition
   }
 ]
 

@@ -91,7 +91,9 @@
     <v-main>
       <router-view
         @submit-upload-data="uploadFile"
-        @start-ocr="startOcr"
+        :recog-step="this.recogStep"
+        :ocr-text="this.ocrText"
+        :yolo-result="this.yoloResult"
       ></router-view>
     </v-main>
 
@@ -103,6 +105,8 @@
 <script>
 import footerVue from '@/components/Footer.vue'
 import axios from 'axios'
+import UploadService from "@/services/UploadFilesService";
+
 
 // const SERVER_URL = 'http://34.64.197.76/api'
 const SERVER_URL = 'http://127.0.0.1:8000'
@@ -114,26 +118,52 @@ export default {
   },
 
   data: () => ({
-    file: undefined,
+    // 업로드 파일 관련
+    progress: 0,
+    message: "",
+
+    // processing 관련
+    recogStep: 1,
+  
     fixed: false,
     offsetTop: 0,
-    bosang: ""
+    bosang: "",
+    
+    // Yolo 결과
+    yoloResult: {
+      'detectPath': "",
+      'platePath' : ""
+    },
+
+    // Ocr결과
+    ocrText: ""
   }),
   methods: {
-    uploadFile(file, onUploadProgress) {
-      let formData = new FormData();
-      formData.append("file", file)
-
-      console.log(formData, onUploadProgress)
-      axios.post(`${SERVER_URL}/img/`, formData,
-        {headers: {
-          'Content-Type': "multipart/form-data"}
-        }
-      ).then(response => {
-        console.log(response)
-      }).catch(err => {
-        console.log(err)
+    uploadFile(selectedFile) {
+      this.progress = 0
+      this.recogStep = 1
+      this.message = ""
+      this.detectPath = ""
+      this.platePath = ""
+      this.ocrText = ""
+      
+      console.log(selectedFile)
+      UploadService.upload(selectedFile, (event) => {
+        this.progress = Math.round((100 * event.loaded) / event.total);
       })
+        .then((response) => {
+          this.message = response.data.message;
+          console.log(response)
+          console.log(this.message)
+          this.recogStep = 2
+          this.startYolo(response.data.name)
+          this.progress = 0
+        }).catch((err) => {
+          console.log(err)
+          this.progress = 0;
+          this.message = "Could not upload the file!";
+          console.log(this.message)
+        });
     },
     onScroll () {
       if (window.scrollY >= 800) {
@@ -144,10 +174,24 @@ export default {
         this.fixed = false
       }
     },
-    startOcr(filename) {
-      axios.get(`${SERVER_URL}/img/ocr/`+filename)
+    startYolo(filename) {
+      axios.get(`${SERVER_URL}/img/recognition/`+filename)
       .then((response) => {
         console.log(response)
+        this.yoloResult.detectPath = response.data.detect
+        this.yoloResult.platePath = response.data.plate
+        console.log(this.yoloResult)
+        this.recogStep = 3
+        this.startOcr(filename.replace('.jpg', 'plate.jpg'))
+      })
+    },
+    startOcr(plate) {
+      axios.get(`${SERVER_URL}/img/ocr/` + plate)
+      .then((response) => {
+        this.recogStep = 4
+        console.log(response)
+        this.ocrText = response.data.ocr_text
+        this.$router.push('/afterRecognition')
       })
     }
   }

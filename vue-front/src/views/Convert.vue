@@ -26,7 +26,6 @@
     <v-row>
       <upload-box
         @submit-upload-data="uploadFile"
-        @start-ocr="startOcr"
       ></upload-box>
     </v-row>
     <v-row
@@ -95,11 +94,8 @@ export default {
     }
   },
   methods: {
-    uploadFile(selectedFile, onUploadProgress) {
-      this.$emit('submit-upload-data', selectedFile, onUploadProgress)
-    },
-    startOcr(filename) {
-      this.$emit('start-ocr', filename)
+    uploadFile(selectedFile) {
+      this.$emit('submit-upload-data', selectedFile)
     }
   }
 }

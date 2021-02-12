@@ -9,15 +9,18 @@
         cols="8"
         class="px-2 py-2">
         <v-img
-          class="imgbox">hihi</v-img>
+          class="imgbox"
+          :src="yoloResult.detectPath">hihi</v-img>
       </v-col>
       <v-col
         cols="4"
         class="pr-2 py-2">
         <v-img
-          class="imgbox mb-2">hihi</v-img>
-        <v-img
-          class="imgbox">hihi</v-img>
+          class="imgbox mb-2"
+          :src="yoloResult.platePath">hihi</v-img>
+        <v-text>
+          <h2>"{{ this.ocrText }}"</h2>
+        </v-text>
       </v-col>
     </v-row>
     <v-row></v-row>
@@ -30,7 +33,14 @@ export default {
   name: "AfterRecognition",
   data () {
     return {
-
+    }
+  },
+  props: {
+    yoloResult: {
+      type: Object
+    },
+    ocrText: {
+      type: String
     }
   }
 }

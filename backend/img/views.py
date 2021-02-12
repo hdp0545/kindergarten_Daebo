@@ -47,8 +47,18 @@ def save_img(request):
 
 
 @api_view(['GET'])
-def ocr(request, target_name):
-    ocr_texts = pic.detection('media/images/{}'.format(target_name))
+def recognition(request, target_name):
+    result = pic.detection('media/images/{}'.format(target_name))
+    if result['status']:
+        context = result
+        return Response(context, status=status.HTTP_200_OK)
+    else:
+        return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['GET'])
+def ocr(request, plate):
+    plate_path = 'media/images/'+ plate
+    ocr_texts = pic.start_ocr(plate_path)
     for ocr_text in ocr_texts:
         if 47 < ord(ocr_text[1][-1]) < 58:
             result2 = ocr_text[1]

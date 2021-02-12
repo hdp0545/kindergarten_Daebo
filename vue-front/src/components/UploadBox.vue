@@ -16,23 +16,21 @@
 </template>
 
 <script>
-import UploadService from "../services/UploadFilesService";
 
 export default {
   name: "upload-box",
   data() {
     return {
       selectedFile: undefined,
-      imageUrl: "",
-      progress: 0,
-
-      during_OCR: false,
+      // imageUrl: "",
       
-      message: "",
-      fileInfos: [],
-      rules: [
-        value => !value || value.size < 2000000 || 'Picture size should be less than 2 MB!',
-      ],
+
+   
+      
+      // fileInfos: [],
+      // rules: [
+      //   value => !value || value.size < 2000000 || 'Picture size should be less than 2 MB!',
+      // ],
     }
   },
   methods: {
@@ -42,26 +40,9 @@ export default {
         return;
       }
       this.message = ""
-      // this.$emit('submit-upload-data', this.selectedFile)
-      // this.$router.push('/processing')
-      UploadService.upload(this.selectedFile, (event) => {
-        this.progress = Math.round((100 * event.loaded) / event.total);
-      })
-        .then((response) => {
-          this.message = response.data.message;
-          console.log(response)
-          console.log(this.message)
-          this.$emit('start-ocr', response.data.name)
-          this.progress = 0
-          this.during_OCR = true
-          this.selectedFile = undefined
-        }).catch((err) => {
-          console.log(err)
-          this.progress = 0;
-          this.message = "Could not upload the file!";
-          this.selectedFile = undefined;
-          console.log(this.message)
-        });
+      this.$emit('submit-upload-data', this.selectedFile)
+      this.selectedFile = undefined
+      this.$router.push('/processing')
     },
     addFile(e) {
       console.log("드래그 앤 드랍으로 파일 업로드를 시도합니다.")

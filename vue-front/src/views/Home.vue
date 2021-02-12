@@ -7,14 +7,11 @@
     <v-spacer
       class="spacer"></v-spacer>
     <!-- converter page -->
-    <convert
-      @submit-upload-data="uploadFile"
-      @start-ocr="startOcr"></convert>
+    <convert></convert>
     <!-- contact page -->
     <v-spacer
       class="spacer"></v-spacer>
     <contact></contact>
-    <after-recognition></after-recognition>
     <processing></processing>
   </v-container>
 </template>
@@ -23,7 +20,6 @@
 import About from './About.vue'
 import Contact from './Contact.vue'
 import Convert from './Convert.vue'
-import AfterRecognition from './AfterRecognition.vue'
 import Processing from './Processing.vue'
 
 export default {
@@ -32,16 +28,9 @@ export default {
     About,
     Contact,
     Convert,
-    AfterRecognition,
     Processing,
   },
   methods: {
-    uploadFile(selectedFile, onUploadProgress) {
-      this.$emit('submit-upload-data', selectedFile, onUploadProgress)
-    },
-    startOcr(filename) {
-      this.$emit('start-ocr', filename)
-    }
   }
 }
 </script>

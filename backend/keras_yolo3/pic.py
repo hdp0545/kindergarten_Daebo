@@ -54,7 +54,7 @@ def detection(target_path):
                 classes_path=os.path.join(HOME_DIR, 'model_data/plate_class.txt'),
                 anchors_path=os.path.join(HOME_DIR,'model_data/yolo_anchors.txt'))
 
-
+    print('target_path' + target_path)
     img = Image.open(target_path)
     print('이미지 오픈!!!!!!')
     plt.figure(figsize=(12, 12))
@@ -70,7 +70,7 @@ def detection(target_path):
     plt.imshow(detected_img)
     plt.axis('off')
     # # 돌린 번호판인식된거 사진저장
-    plt.savefig('keras_yolo3/result/detected_1.jpg')
+    plt.savefig(target_path)
 
     # 좌표불러오기
     print('좌표 불러오기 시작')
@@ -104,13 +104,23 @@ def detection(target_path):
     # croppedImage.show()
     plt.imshow(croppedImage)
     plt.axis('off')
-    plt.savefig('keras_yolo3/result/detected.jpg')
+    
+    # plate path 지정
+    plate_path = target_path.replace('.jpg', 'plate.jpg')
+    plt.savefig(target_path.replace('.jpg', 'plate.jpg'))
     # plt.show()
     plt.close()
+    print('yolo 끗')
+    result = {
+        'detect' : "http://localhost:8000/" + target_path,
+        'plate' : "http://localhost:8000/" + plate_path,
+        'status' : True
+    }
+    return result
 
-
+def start_ocr(plate_path):
     reader = easyocr.Reader(['ko']) # need to run only once to load model into memory
-    result = reader.readtext('keras_yolo3/result/detected.jpg')
+    result = reader.readtext(plate_path)
     print(result)
     
     return result
