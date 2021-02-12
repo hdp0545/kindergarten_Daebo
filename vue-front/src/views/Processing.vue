@@ -1,15 +1,15 @@
 <template>
   <v-container
-    style="min-height: 672px"
+    style="min-height: 600px; max-height:600px;"
     class="mt-16 my-main">
     <v-row
       justify='center'>
       <div>
       <h1 class="bold">
-        Recognition
+        Processing
       </h1>
       </div>
-    </v-row>  
+    </v-row>
     <v-row
       justify='center'>
       <hr
@@ -19,26 +19,9 @@
         color="black"
         text-align="center">
     </v-row>
-
-    <v-row class="mt-6">
-      <v-img :src="imageUrl"></v-img>
-    </v-row>
-    <v-row>
-      <upload-box
-        @submit-upload-data="uploadFile"
-        @start-ocr="startOcr"
-      ></upload-box>
-    </v-row>
-    <v-row
-      justify="center"
-      class="mt-8">
-      <h2>
-        <b>How to Use WALL·E Converter</b>
-      </h2>
-    </v-row>
     <v-row
       justify="space-around"
-      class="mt-4">
+      class=" mt-4 pt-10">
       <v-col
         v-for="howToCard in howToCards"
         :key="howToCard.step"
@@ -47,26 +30,23 @@
           class="mx-2"
           flat
           justify=center>
-          <v-img
-            :src="howToCard.src">
-          </v-img>
           <v-card-text
             class="mt-n2 px-0">
             <pre><center>{{howToCard.information}}</center></pre>
           </v-card-text>
+          <v-img
+            :src="howToCard.src">
+          </v-img>
         </v-card>
       </v-col>
     </v-row>
+
   </v-container>
 </template>
 
 <script>
-import UploadBox from '../components/UploadBox.vue'
 export default {
-  name: "Convert",
-  components: {
-    UploadBox
-  },
+  name: 'Processing',
   data () {
     return {
       imageUrl: '',
@@ -74,40 +54,29 @@ export default {
         {
           step: 1,
           src: require("../img/page_converter/work_step1.png"),
-          information: "[Upload] Drag&Drop\n번호판 이미지 업로드"
+          information: "[Upload] Drag&Drop"
         },
         {
           step: 2,
           src: require("../img/page_converter/work_step2.png"),
-          information: "[Detection] YOLO\n차량 번호판 탐지"
+          information: "[Detection] YOLO"
         },
         {
           step: 3,
           src: require("../img/page_converter/work_step3.png"),
-          information: "[Recognition] OCR\n번호판 글씨 인식"
+          information: "[Recognition] OCR"
         },
         {
           step: 4,
           src: require("../img/page_converter/work_step4.png"),
-          information: "[Show] Output\n인식한 차량번호 출력"
+          information: "[Show] Output"
         },
       ],
     }
   },
-  methods: {
-    uploadFile(selectedFile, onUploadProgress) {
-      this.$emit('submit-upload-data', selectedFile, onUploadProgress)
-    },
-    startOcr(filename) {
-      this.$emit('start-ocr', filename)
-    }
-  }
 }
 </script>
 
 <style>
-.bold {
-  font-family: 나눔스퀘어_ac Bold !important;
-  src: url(../font/NanumSquare_acB.ttf);
-}
+
 </style>

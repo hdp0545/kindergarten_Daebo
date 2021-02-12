@@ -42,13 +42,16 @@ export default {
         return;
       }
       this.message = ""
+      // this.$emit('submit-upload-data', this.selectedFile)
+      // this.$router.push('/processing')
       UploadService.upload(this.selectedFile, (event) => {
         this.progress = Math.round((100 * event.loaded) / event.total);
       })
         .then((response) => {
           this.message = response.data.message;
+          console.log(response)
           console.log(this.message)
-          this.$emit('start-ocr')
+          this.$emit('start-ocr', response.data.name)
           this.progress = 0
           this.during_OCR = true
           this.selectedFile = undefined
@@ -61,35 +64,11 @@ export default {
         });
     },
     addFile(e) {
+      console.log("드래그 앤 드랍으로 파일 업로드를 시도합니다.")
       this.selectedFile = e.dataTransfer.files[0]
       console.log(this.selectedFile)
       this.fileUpload()
     }
-
-    // upload() {
-    //   console.log("start")
-    //   this.progress = 0;
-    //   this.uploadData.name = this.selectedFiles.item(0).name
-    //   this.$emit('submit-upload-data', this.uploadData)
-    //   this.currentFile = this.selectedFiles.item(0);
-    //   this.$emit('upload-file', this.currentFile)
-    //   UploadService.upload(this.currentFile, event => {
-    //     this.progress = Math.round((100 * event.loaded) / event.total);
-    //   })
-    //     .then(response => {
-    //       this.message = response.data.message;
-    //       // return UploadService.getFiles();
-    //     })
-    //     // .then(files => {
-    //     //   this.fileInfos = files.data;
-    //     // })
-    //     // .catch(() => {
-    //     //   this.progress = 0;
-    //     //   this.message = "Could not upload the file!";
-    //     //   this.currentFile = undefined;
-    //     // });
-    //   this.selectedFiles = undefined;
-    // }
   },
 }
 

@@ -47,7 +47,7 @@
             src="../img/page_about/repair.png"
           ></v-img>
           <v-card-title>
-            <h1 class="mx-auto mt-5 bold">"GAN"</h1>
+            <h3 class="mx-auto mt-5 bold">"GAN Algorithm"</h3>
           </v-card-title>
           <v-card-text
             class="mt-2">
@@ -67,7 +67,7 @@
             src="../img/page_about/evaluation.png"
           ></v-img>
           <v-card-title>
-            <h1 class="mx-auto mt-5 bold">"YOLO"</h1>
+            <h3 class="mx-auto mt-5 bold">"YOLO Algorithm"</h3>
           </v-card-title>
           <v-card-text
             class="mt-2">
@@ -87,7 +87,7 @@
             src="../img/page_about/transformation.png"
           ></v-img>
           <v-card-title>
-            <h1 class="mx-auto mt-5 bold">"OCR"</h1>
+            <h3 class="mx-auto mt-5 bold">"OCR Algorithm"</h3>
           </v-card-title>
           <v-card-text
             class="mt-2">

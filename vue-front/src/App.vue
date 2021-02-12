@@ -144,8 +144,11 @@ export default {
         this.fixed = false
       }
     },
-    startOcr() {
-      axios.get(`${SERVER_URL}/img/ocr/`)
+    startOcr(filename) {
+      axios.get(`${SERVER_URL}/img/ocr/`+filename)
+      .then((response) => {
+        console.log(response)
+      })
     }
   }
 };

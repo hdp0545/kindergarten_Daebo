@@ -37,7 +37,8 @@ def save_img(request):
             context = {
                 'result' : 'True',
                 'message' : '파일을 업로드 하였습니다.',
-                'path' : instance.image.url
+                'path' : instance.image.url,
+                'name' : instance.image.url.replace('/media/images/', '')
             }
             return Response(context, status=status.HTTP_200_OK)
         else:
@@ -54,6 +55,7 @@ def ocr(request, target_name):
         elif 44032 <= ord(ocr_text[1][-1]) <= 55203:
             result1 = ocr_text[1]
     result = result1 + ' ' + result2
+    print('백앤드 작업 결과 :'+result)
     context = {
         'ocr_text' : result
     }

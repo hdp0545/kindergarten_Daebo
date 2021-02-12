@@ -111,13 +111,13 @@ def detection(target_path):
 
     reader = easyocr.Reader(['ko']) # need to run only once to load model into memory
     result = reader.readtext('keras_yolo3/result/detected.jpg')
+    print(result)
     
     return result
 
 
 
 # ## 흐으으윽 백 컨투어 구상좀 해야함 
-
 # img_ori = cv2.imread('detected.jpg')
 
 # height, width, channel = img_ori.shape
