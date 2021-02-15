@@ -3,18 +3,20 @@
     style="min-height: 600px"
     class="my-main">
     <!-- about page -->
-    <about></about>
+    <about
+      id="about"></about>
     <v-spacer
       class="spacer"></v-spacer>
     <!-- converter page -->
     <convert
+      id="convert"
       @submit-upload-data="uploadFile"
     ></convert>
     <!-- contact page -->
     <v-spacer
       class="spacer"></v-spacer>
-    <contact></contact>
-    <processing></processing>
+    <contact
+      id="contact"></contact>
   </v-container>
 </template>
 
@@ -22,7 +24,6 @@
 import About from './About.vue'
 import Contact from './Contact.vue'
 import Convert from './Convert.vue'
-import Processing from './Processing.vue'
 
 export default {
   name: 'Home',
@@ -30,7 +31,6 @@ export default {
     About,
     Contact,
     Convert,
-    Processing,
   },
   methods: {
     uploadFile(selectedFile) {

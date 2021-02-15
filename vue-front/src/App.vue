@@ -53,26 +53,34 @@
               right
               >
               <v-tab
-                to="/"
                 text
+                @click="$vuetify.goTo(0, {duration: 500,
+                                                offset: 0,
+                                                easing: 'easeInOutCubic'})"
               >
                 <span class="mr-2">Home</span>
               </v-tab>
               <v-tab
-                to="/about"
                 text
+                @click="$vuetify.goTo('#about', {duration: 500,
+                                                offset: 100,
+                                                easing: 'easeInOutCubic'})"
               >
                 <span class="mr-2">About Program</span>
               </v-tab>
               <v-tab
-                to="/convert"
                 text
+                @click="$vuetify.goTo('#convert', {duration: 500,
+                                                offset: 100,
+                                                easing: 'easeInOutCubic'})"
               >
                 <span class="mr-2">Converter</span>
               </v-tab>
               <v-tab
-                to="/contact"
                 text
+                @click="$vuetify.goTo('#contact', {duration: 500,
+                                                offset: 100,
+                                                easing: 'easeInOutCubic'})"
               >
                 <span class="mr-2">Contact</span>
               </v-tab>
