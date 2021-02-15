@@ -8,19 +8,23 @@
       <v-col
         cols="8"
         class="px-2 py-2">
+        <h3>Recognized Image</h3>
         <v-img
           class="imgbox"
-          :src="yoloResult.detectPath">hihi</v-img>
+          :src="yoloResult.detectPath"></v-img>
       </v-col>
       <v-col
         cols="4"
         class="pr-2 py-2">
+        <h3>Plate Image</h3>
         <v-img
           class="imgbox mb-2"
-          :src="yoloResult.platePath">hihi</v-img>
-        <v-text>
+          :src="yoloResult.platePath"></v-img>
+        <h3>Result</h3>
+        <div
+          class="resultBox">
           <h2>"{{ this.ocrText }}"</h2>
-        </v-text>
+        </div>
       </v-col>
     </v-row>
     <v-row></v-row>
@@ -55,5 +59,10 @@ export default {
 }
 .col {
   padding: 0;
+}
+.resultBox {
+  background-color: white ;
+  line-height: 248px;
+  text-align: center;
 }
 </style>

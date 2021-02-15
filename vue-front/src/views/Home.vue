@@ -7,7 +7,9 @@
     <v-spacer
       class="spacer"></v-spacer>
     <!-- converter page -->
-    <convert></convert>
+    <convert
+      @submit-upload-data="uploadFile"
+    ></convert>
     <!-- contact page -->
     <v-spacer
       class="spacer"></v-spacer>
@@ -31,6 +33,9 @@ export default {
     Processing,
   },
   methods: {
+    uploadFile(selectedFile) {
+      this.$emit('submit-upload-data', selectedFile)
+    }
   }
 }
 </script>

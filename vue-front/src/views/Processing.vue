@@ -12,7 +12,8 @@
       </div>
     </v-row>
     <v-row
-      justify='center'>
+      justify='center'
+      class="mb-6">
       <hr
         class="mt-1"
         width="110px"

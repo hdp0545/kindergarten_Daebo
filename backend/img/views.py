@@ -25,7 +25,7 @@ class ImagesViewSet(viewsets.ModelViewSet):
 @api_view(['POST'])
 def save_img(request):
     context = {
-                'result' : 'False'    
+                'result' : 'False' 
             }
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
@@ -66,7 +66,10 @@ def ocr(request, plate):
             result2 = ocr_text[1]
         elif 44032 <= ord(ocr_text[1][-1]) <= 55203:
             result1 = ocr_text[1]
-    result = result1 + ' ' + result2
+    if result1:
+        result = result1 + ' ' + result2
+    else:
+        result = result2
     print('백앤드 작업 결과 :'+result)
     context = {
         'ocr_text' : result
