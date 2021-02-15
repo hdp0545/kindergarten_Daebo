@@ -59,6 +59,8 @@ def recognition(request, target_name):
 def ocr(request, plate):
     plate_path = 'media/images/'+ plate
     ocr_texts = pic.start_ocr(plate_path)
+    result1 = ''
+    result2 = ''
     for ocr_text in ocr_texts:
         if 47 < ord(ocr_text[1][-1]) < 58:
             result2 = ocr_text[1]
