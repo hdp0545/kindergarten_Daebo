@@ -3,6 +3,7 @@ import cv2
 import threading
 from django.http import StreamingHttpResponse
 
+import keras_yolo3.a as a
 
 class VideoCamera(object):
     def __init__(self):
@@ -32,5 +33,10 @@ def gen(camera):
 
 def livefe(request):
     return StreamingHttpResponse(gen(VideoCamera()), content_type="multipart/x-mixed-replace;boundary=frame")
+
+
+def start_real_time(request):
+    return StreamingHttpResponse(a.start_real_time(), content_type="multipart/x-mixed-replace;boundary=frame")
+
   
 

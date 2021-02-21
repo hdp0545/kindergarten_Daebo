@@ -22,12 +22,12 @@ import logging
 import ssl
 import easyocr
 
-def createFolder(directory):
-    try:
-        if not os.path.exists(directory):
-            os.makedirs(directory)
-    except OSError:
-        print ('Error: Creating directory. ' +  directory)
+# def createFolder(directory):
+#     try:
+#         if not os.path.exists(directory):
+#             os.makedirs(directory)
+#     except OSError:
+#         print ('Error: Creating directory. ' +  directory)
 
 def detection(target_path):
     ssl._create_default_https_context = ssl._create_unverified_context
@@ -44,10 +44,6 @@ def detection(target_path):
 
 
     HOME_DIR='keras_yolo3/'
-
-
-    
-    createFolder('/Users/hdp05/OneDrive/Desktop/keras-yolo3/result')
 
 
 
@@ -90,8 +86,8 @@ def detection(target_path):
 
     i_left = int(left)
     i_top = int(top)
-    i_right = int(right)
-    i_bottom = int(bottom)
+    i_right = int(right) + 1
+    i_bottom = int(bottom) + 1
     # print(i_bottom)
     # for line in point_files : # 파일 배열로 자르기
     #      split_points = line.split(' ')
