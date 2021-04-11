@@ -141,11 +141,14 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.venv6
 env/
 venv/
+venv6/
 ENV/
 env.bak/
 venv.bak/
+venv6.bak/
 pythonenv*
 
 # Spyder project settings
@@ -321,5 +324,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
+ 
+keras-yolo3/
+*.h5
 # End of https://www.toptal.com/developers/gitignore/api/python,django,vscode,windows,dart,flutter

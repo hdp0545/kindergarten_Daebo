@@ -25,7 +25,7 @@ SECRET_KEY = '%skm1!4(&bep08%1kwzi$wr8t0b#8%5t!0yy4gjxs4l+6(w5$b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['34.64.197.76', '127.0.0.1', 'localhost', '*']
 
 
 # Application definition
@@ -33,12 +33,14 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     # apps
     'img',
-    'yolo',
+    'my_yolo',
 
     # thirdparty-lib
     'rest_framework',
     'numpy',
     'matplotlib',
+    'corsheaders',
+    'PIL',
 
     # default
     'django.contrib.admin',
@@ -51,6 +53,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # cors
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -134,3 +138,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+CORS_ORIGIN_ALLOW_ALL = True
